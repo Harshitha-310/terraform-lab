@@ -17,11 +17,26 @@ jobs:
     - name: Terraform Format Check
       run: terraform fmt -check -recursive
 
-    - name: Terraform Init
-      run: terraform init
+    - name: Terraform Init & Validate Day1
+      working-directory: day1
+      run: |
+        terraform init
+        terraform validate
 
-    - name: Terraform Validate
-      run: terraform validate
+    - name: Terraform Init & Validate Day2
+      working-directory: day2
+      run: |
+        terraform init
+        terraform validate
 
-    - name: Terraform Plan
-      run: terraform plan
+    - name: Terraform Init & Validate Day3
+      working-directory: day3
+      run: |
+        terraform init
+        terraform validate
+
+    - name: Terraform Init & Validate Day4
+      working-directory: day4
+      run: |
+        terraform init
+        terraform validate
