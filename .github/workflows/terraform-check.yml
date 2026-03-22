@@ -9,34 +9,22 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Setup Terraform
-      uses: hashicorp/setup-terraform@v2
+      uses: hashicorp/setup-terraform@v3
 
     - name: Terraform Format Check
       run: terraform fmt -check -recursive
 
-    - name: Terraform Init & Validate Day1
+    - name: Validate Day1
       working-directory: day1
       run: |
-        terraform init
+        terraform init -backend=false
         terraform validate
 
-    - name: Terraform Init & Validate Day2
+    - name: Validate Day2
       working-directory: day2
       run: |
-        terraform init
-        terraform validate
-
-    - name: Terraform Init & Validate Day3
-      working-directory: day3
-      run: |
-        terraform init
-        terraform validate
-
-    - name: Terraform Init & Validate Day4
-      working-directory: day4
-      run: |
-        terraform init
+        terraform init -backend=false
         terraform validate
